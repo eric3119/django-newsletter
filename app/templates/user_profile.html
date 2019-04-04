@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    
+<div class="container">
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ formset.management_form }}
+
+        {% for form in formset.forms %}
+            {{ form.id }}{{ form.newsletter }}
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        {{ form.subscribed }}
+                    </div>
+                </div>
+                <a class="form-control list-group-item-action" href="{% url 'newsletter_detail' form.instance.newsletter.slug %}">{{ form.instance.newsletter.title }}</a>
+            </div>            
+        {% endfor %}      
+    <input id="id_submit" class="btn btn-primary" name="submit" value="{% trans "Confirm" %}" type="submit" />      
+    </form>
+</div>
+    
+{% endif %}
+{% endblock content %}
