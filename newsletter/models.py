@@ -397,6 +397,9 @@ class Subscription(models.Model):
 class Attachment(models.Model):
     attachment = models.FileField(blank=True, null=True, upload_to='attachment/%Y/%m/%d')
 
+    def __str__(self):
+        return self.attachment.name
+
 @python_2_unicode_compatible
 class Article(models.Model):
     """

@@ -35,7 +35,7 @@ except ImportError:  # Django < 1.10
 from sorl.thumbnail.admin import AdminImageMixin
 
 from .models import (
-    Newsletter, Subscription, Article, Message, Submission
+    Newsletter, Subscription, Article, Message, Submission, Attachment
 )
 
 from django.utils.timezone import now
@@ -531,3 +531,4 @@ admin.site.register(Newsletter, NewsletterAdmin)
 admin.site.register(Submission, SubmissionAdmin)
 admin.site.register(Message, MessageAdmin)
 admin.site.register(Subscription, SubscriptionAdmin)
+admin.site.register(Attachment)
