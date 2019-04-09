@@ -22,6 +22,7 @@ from django.views.generic import (
 from django.contrib import messages
 from django.contrib.sites.models import Site
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext, ugettext_lazy as _

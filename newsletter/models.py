@@ -5,6 +5,7 @@ import django
 from django.conf import settings
 from django.contrib.sites.models import Site
 from django.contrib.sites.managers import CurrentSiteManager
+from django.contrib.postgres.fields import ArrayField
 from django.core.mail import EmailMultiAlternatives
 from django.db import models
 from django.template.loader import select_template
@@ -417,6 +418,8 @@ class Article(models.Model):
         upload_to='newsletter/images/%Y/%m/%d', blank=True, null=True,
         verbose_name=_('image')
     )
+    
+    attachment = models.FileField(blank=True, null=True, upload_to='attachment/%Y/%m/%d')
 
     # Message this article is associated with
     # TODO: Refactor post to message (post is legacy notation).
