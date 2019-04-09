@@ -394,6 +394,9 @@ class Subscription(models.Model):
             'activation_code': self.activation_code
         })
 
+class Attachment(models.Model):
+    attachment = models.FileField(blank=True, null=True, upload_to='attachment/%Y/%m/%d')
+
 @python_2_unicode_compatible
 class Article(models.Model):
     """
@@ -419,7 +422,8 @@ class Article(models.Model):
         verbose_name=_('image')
     )
     
-    attachment = models.FileField(blank=True, null=True, upload_to='attachment/%Y/%m/%d')
+    attachment = models.ManyToManyField(Attachment, blank=True)
+    #models.FileField(blank=True, null=True, upload_to='attachment/%Y/%m/%d')
 
     # Message this article is associated with
     # TODO: Refactor post to message (post is legacy notation).
@@ -444,10 +448,6 @@ class Article(models.Model):
             self.sortorder = self.post.get_next_article_sortorder()
 
         super(Article, self).save()
-
-class Attachments(models.Model):
-    message_id = models.ForeignKey(Article, on_delete=models.CASCADE)
-    attachment = models.FileField(upload_to='attachments')
 
 def get_default_newsletter():
     return Newsletter.get_default()
