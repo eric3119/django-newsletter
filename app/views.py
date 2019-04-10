@@ -10,7 +10,7 @@ class UserProfileView(LoginRequiredMixin, NewsletterListView):
     allow_empty=True
     template_name='user_profile.html'
 
-class NewsletterDetailView(LoginRequiredMixin, NewsletterDetailView):
-    pass# template_name='newsletter_detail.html'
+# class NewsletterDetailView(LoginRequiredMixin, NewsletterDetailView):
+#     pass# template_name='newsletter_detail.html'
 
     
