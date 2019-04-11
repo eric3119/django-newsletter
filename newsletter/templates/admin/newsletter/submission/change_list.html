@@ -2,7 +2,23 @@
 {% load i18n admin_urls %}
 
 {% block object-tools-items %}
-  <li><a href="{% url opts|admin_urlname:'submit_newsletter' %}">{% trans "Submit Newsletter" %}</a></li>
-
+  <li><a id='submit_newsletter' href="#">{% trans "Submit Newsletter" %}</a></li>
+  <script type="text/javascript" src="{{ STATIC_URL }} /static/jquery/jquery-3.3.1.min.js"></script>
+  <script>
+    $('#submit_newsletter').on('click', function (){ 
+        $.ajax({
+            url: "{% url opts|admin_urlname:'submit_newsletter' %}",
+            beforeSend: function( xhr ) {
+                xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+            }
+            })
+            .done(function( data ) {
+                if ( console && console.log ) {
+                    console.log( "Sent");
+                }
+            });          
+        })
+  </script>
+    
   {{ block.super }}
 {% endblock %}
