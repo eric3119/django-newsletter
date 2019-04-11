@@ -50,6 +50,9 @@ from .compat import get_context, reverse
 
 from .settings import newsletter_settings
 
+# automatic submit_newsletter
+from django.core import management
+
 # Contsruct URL's for icons
 ICON_URLS = {
     'yes': '%snewsletter/admin/img/icon-yes.gif' % settings.STATIC_URL,
@@ -163,6 +166,7 @@ class SubmissionAdmin(NewsletterAdminLinkMixin, ExtendibleModelAdminMixin,
 
     """ Views """
     def submit(self, request, object_id):
+        
         submission = self._getobj(request, object_id)
 
         if submission.sent or submission.prepared:
@@ -172,10 +176,17 @@ class SubmissionAdmin(NewsletterAdminLinkMixin, ExtendibleModelAdminMixin,
             )
             return HttpResponseRedirect(change_url)
 
-        submission.prepared = True
+        submission.prepared = True        
+        
         submission.save()
-
         messages.info(request, _("Your submission is being sent."))
+
+        changelist_url = reverse('admin:newsletter_submission_changelist')
+        return HttpResponseRedirect(changelist_url)
+    
+    def submit_newsletter(self, request):
+        
+        management.call_command('submit_newsletter', verbosity=0)
 
         changelist_url = reverse('admin:newsletter_submission_changelist')
         return HttpResponseRedirect(changelist_url)
@@ -189,7 +200,12 @@ class SubmissionAdmin(NewsletterAdminLinkMixin, ExtendibleModelAdminMixin,
                 r'^(.+)/submit/$',
                 self._wrap(self.submit),
                 name=self._view_name('submit')
-            )
+            ),
+            url(
+                r'^submit/',
+                self._wrap(self.submit_newsletter),
+                name=self._view_name('submit_newsletter')
+            ),
         ]
 
         return my_urls + urls
@@ -531,4 +547,4 @@ admin.site.register(Newsletter, NewsletterAdmin)
 admin.site.register(Submission, SubmissionAdmin)
 admin.site.register(Message, MessageAdmin)
 admin.site.register(Subscription, SubscriptionAdmin)
-admin.site.register(Attachment)
+# admin.site.register(Attachment)
