@@ -12,6 +12,16 @@
         <link rel="stylesheet" href="{{ STATIC_URL }} /static/main.css">        
         <script type="text/javascript" src="{{ STATIC_URL }} /static/jquery/jquery-3.3.1.min.js"></script>
         {% block header %}
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <a href="{% url 'newsletter_list' %}"><span class="navbar-brand">Início</span></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>                            
+                </div>
+            </nav>
+        </header>
         {% endblock header %}
     </head>
     <body>

@@ -5,6 +5,8 @@ logger = logging.getLogger(__name__)
 
 import six
 
+import json as jsonlib
+
 from django.db import models
 
 from django.conf import settings
@@ -186,12 +188,11 @@ class SubmissionAdmin(NewsletterAdminLinkMixin, ExtendibleModelAdminMixin,
     
     def submit_newsletter(self, request):
         
-        logger.error("teste")
         management.call_command('submit_newsletter', verbosity=0)
-        json = serializers.serialize("json", "done")
+        
+        data = {'message': 'Sent'}
 
-        return HttpResponse(json, content_type='application/json')
-        # return HttpResponseRedirect(changelist_url)
+        return HttpResponse(jsonlib.dumps(data), content_type='application/json')
 
 
     """ URLs """

@@ -583,6 +583,7 @@ class SubmissionArchiveIndexView(SubmissionViewBase, ArchiveIndexView):
 
 class SubmissionArchiveDetailView(SubmissionViewBase, DateDetailView):
     def get_context_data(self, **kwargs):
+        logger.error("teste")
         """
         Make sure the actual message is available.
         """
