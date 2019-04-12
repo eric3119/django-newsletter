@@ -2,10 +2,15 @@
 {% load i18n admin_urls %}
 
 {% block object-tools-items %}
-  <li><a id='submit_newsletter' href="#">{% trans "Submit Newsletter" %}</a></li>
-  <script type="text/javascript" src="{{ STATIC_URL }} /static/jquery/jquery-3.3.1.min.js"></script>
-  <script>
+    <li>
+        <div id="loader" class="loader" style="display:none"></div>
+        <a id='submit_newsletter' href="#">{% trans "Submit Newsletter" %}</a>
+    </li>
+    <script type="text/javascript" src="{{ STATIC_URL }} /static/jquery/jquery-3.3.1.min.js"></script>
+    <script>
     $('#submit_newsletter').on('click', function (){ 
+        $('#loader').show();
+        $('#submit_newsletter').hide();
         $.ajax({
             url: "{% url opts|admin_urlname:'submit_newsletter' %}",
             beforeSend: function( xhr ) {
@@ -14,11 +19,34 @@
             })
             .done(function( data ) {
                 if ( console && console.log ) {
-                    console.log( "Sent");
+                    console.log( data);
+                    $('#loader').hide();
+                    $('#submit_newsletter').show();
+                    location.reload(); 
                 }
             });          
         })
   </script>
+
+  <style>
+        .loader {
+            border: 5px solid #f3f3f3;
+                border-top-color: rgb(243, 243, 243);
+                border-top-style: solid;
+                border-top-width: 5px;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+            border-top: 5px solid #555;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+  </style>
     
   {{ block.super }}
 {% endblock %}

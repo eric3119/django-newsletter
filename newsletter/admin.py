@@ -186,10 +186,13 @@ class SubmissionAdmin(NewsletterAdminLinkMixin, ExtendibleModelAdminMixin,
     
     def submit_newsletter(self, request):
         
+        logger.error("teste")
         management.call_command('submit_newsletter', verbosity=0)
+        json = serializers.serialize("json", "done")
 
-        changelist_url = reverse('admin:newsletter_submission_changelist')
-        return HttpResponseRedirect(changelist_url)
+        return HttpResponse(json, content_type='application/json')
+        # return HttpResponseRedirect(changelist_url)
+
 
     """ URLs """
     def get_urls(self):
