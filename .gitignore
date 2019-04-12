@@ -5,3 +5,4 @@ __pycache__
 /cache
 /media
 .idea
+/proj_newsletter/settings.py
