@@ -182,6 +182,9 @@ class SubmissionAdmin(NewsletterAdminLinkMixin, ExtendibleModelAdminMixin,
         
         submission.save()
         messages.info(request, _("Your submission is being sent."))
+        
+        ### send submission
+        management.call_command('submit_newsletter', verbosity=0)
 
         changelist_url = reverse('admin:newsletter_submission_changelist')
         return HttpResponseRedirect(changelist_url)
@@ -236,7 +239,8 @@ if (
 
 class ArticleInline(AdminImageMixin, StackedInline):
     model = Article
-    extra = 0
+    extra = 1
+    max_num=1
     formset = ArticleFormSet
     fieldsets = (
         (None, {
