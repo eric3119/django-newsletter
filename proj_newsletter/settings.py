@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from .settings_secret import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,7 +24,14 @@ MEDIA_URL = '/media/'
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'e(315y4f!onwr5=gqke1!154j$1wdkx1my(q*535bfw17ek@j4'
+
+# Random secret key
+import random
+key_chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+SECRET_KEY = ''.join([
+    random.SystemRandom().choice(key_chars) for i in range(50)
+])
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,17 +88,7 @@ WSGI_APPLICATION = 'proj_newsletter.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'newsletter_teste',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1',
-        'POST': '',
-    }
-}
-
+##################
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -136,8 +134,3 @@ STATICFILES_DIRS = [
 ]
 
 SITE_ID = 1
-
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '164be7dfd6c517'
-EMAIL_HOST_PASSWORD = 'a849e59c0a9a3a'
-EMAIL_PORT = '2525'
