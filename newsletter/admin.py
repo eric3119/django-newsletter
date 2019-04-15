@@ -236,15 +236,16 @@ if (
 
 class ArticleInline(AdminImageMixin, StackedInline):
     model = Article
-    extra = 2
+    extra = 0
     formset = ArticleFormSet
     fieldsets = (
         (None, {
             'fields': ('title', 'text')
         }),
-        (_('Optional'), {
-            'fields': ('sortorder', 'url', 'image', 'attachment'),
-            'classes': ('collapse',)
+        (_('Attachment'), {
+            # 'fields': ('sortorder', 'url', 'image', 'attachment'),
+            'fields': ('url', 'image'),
+            # 'classes': ('collapse',)
         }),
     )
 
