@@ -10,12 +10,12 @@
 <body>
 
     <div class="container">
-        <h1>{{ newsletter.title }}</h1>
-        <h2>{{ message.title }}</h2>
+        <!-- <h1>{{ newsletter.title }}</h1>
+        <h2>{{ message.title }}</h2> -->
         {% for article in message.articles.all %}
             <h3>{{ article.title }}</h3>
             
-            {% thumbnail article.image "200x200" as image %}
+            {% thumbnail article.image "720x300" as image %}
                 <img src="http://{{ site.domain }}{{ image.url }}" width="{{ image.width }}" height="{{ image.height }}">
             {% endthumbnail %}
     
@@ -33,7 +33,7 @@
             {% if submission.publish %}
             <a href="http://{{ site.domain }}{{ submission.get_absolute_url }}">{% trans "Read message online" %}</a>
             {% endif %}
-            <a href="http://{{ site.domain }}{% url "newsletter_unsubscribe_request" newsletter.slug %}">{% trans "Unsubscribe" %}</a>
+            <!-- <a href="http://{{ site.domain }}{% url "newsletter_unsubscribe_request" newsletter.slug %}">{% trans "Unsubscribe" %}</a> -->
         </div>
     </footer>
 
