@@ -22,3 +22,11 @@ footer h5 {
 	font-weight: bold;
 	color: #fff;
 }
+
+.texto-newsletter {
+	width: 720px;
+}
+.texto-newsletter p {
+	margin-top: 20px;
+	text-align: justify;
+}
