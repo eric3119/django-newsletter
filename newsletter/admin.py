@@ -181,7 +181,7 @@ class SubmissionAdmin(NewsletterAdminLinkMixin, ExtendibleModelAdminMixin,
         submission.prepared = True        
         
         submission.save()
-        messages.info(request, _("Your submission is being sent."))
+        messages.info(request, _("Your submission is now sent."))
         
         ### send submission
         management.call_command('submit_newsletter', verbosity=0)
