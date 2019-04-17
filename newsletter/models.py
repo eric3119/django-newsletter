@@ -422,7 +422,15 @@ class Article(models.Model):
     # Make this a foreign key for added elegance
     image = ImageField(
         upload_to='newsletter/images/%Y/%m/%d', blank=True, null=True,
-        verbose_name=_('image')
+        verbose_name=_('Banner')
+    )
+    image_header = ImageField(
+        upload_to='newsletter/images/%Y/%m/%d', blank=True, null=True,
+        verbose_name=_('header')
+    )
+    image_footer = ImageField(
+        upload_to='newsletter/images/%Y/%m/%d', blank=True, null=True,
+        verbose_name=_('footer')
     )
     
     attachment = models.ManyToManyField(Attachment, blank=True)

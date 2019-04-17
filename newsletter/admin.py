@@ -248,7 +248,7 @@ class ArticleInline(AdminImageMixin, StackedInline):
         }),
         (_('Attachment'), {
             # 'fields': ('sortorder', 'url', 'image', 'attachment'),
-            'fields': ('url', 'image'),
+            'fields': ('url', 'image_header', 'image', 'image_footer'),
             # 'classes': ('collapse',)
         }),
     )
