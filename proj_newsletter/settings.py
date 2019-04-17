@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-from .settings_secret import *
+try:
+    from .settings_secret import *
+except ImportError:
+    pass
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,17 +29,18 @@ MEDIA_URL = '/media/'
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # Random secret key
-import random
-key_chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
-SECRET_KEY = ''.join([
-    random.SystemRandom().choice(key_chars) for i in range(50)
-])
+if not 'SECRET_KEY' in locals():
+    import random
+    key_chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+    SECRET_KEY = ''.join([
+        random.SystemRandom().choice(key_chars) for i in range(50)
+    ])
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -52,9 +56,11 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'app',
     'newsletter',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -63,6 +69,20 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    '172.16.130.40:8081',
+)
+
+CORS_ALLOW_METHODS = (    
+    'POST',    
+)
+
+CSRF_TRUSTED_ORIGINS = (
+    '172.16.130.40:8081',
+)
+
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'proj_newsletter.urls'
 
@@ -88,7 +108,13 @@ WSGI_APPLICATION = 'proj_newsletter.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-##################
+if not 'DATABASES' in locals():
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
