@@ -15,9 +15,8 @@
         <p>{% trans "If the error persists, please don't hesitate to contact us at the following email address:" %} <a href="mailto:info@foobar.com">info@foobar.com</a></p>
 
         {% endcomment %}
-    {% else %}
-        <form enctype="multipart/form-data" method="post" action=".">
-            {% csrf_token %}
+    {% else %}    
+        <form enctype="multipart/form-data" method="post" action=".">            
             {{ form.as_p }}
             <p><input id="id_submit" name="submit" value="{% trans "Subscribe" %}" type="submit" /></p>
         </form>
