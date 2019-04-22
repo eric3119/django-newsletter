@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" style="max-width: 720px;">
         <!-- <h1>{{ newsletter.title }}</h1>
         <h2>{{ message.title }}</h2> -->
         {% for article in message.articles.all %}
@@ -22,13 +22,13 @@
                 <br>
                 <h3>{{ article.title }}</h3>
                 
-                <div id="banner">
+                <div id="banner" style="float:left; margin-right:20px">
                     {% thumbnail article.image "450" as image %}
                         <img src="http://{{ site.domain }}{{ image.url }}" width="{{ image.width }}" height="{{ image.height }}">
                     {% endthumbnail %}
                 </div>
                 
-                <div class="texto-newsletter">
+                <div class="texto-newsletter" style="text-align:justify">
                     <p>{{ article.text|safe }}</p>
                 </div>
                 
@@ -45,12 +45,12 @@
     </div>
 
     <footer>
-        <div class="container">
+        <!-- <div class="container">
             {% if submission.publish %}
                 <a href="http://{{ site.domain }}{{ submission.get_absolute_url }}">{% trans "Read message online" %}</a>
             {% endif %}
-            <!-- <a href="http://{{ site.domain }}{% url "newsletter_unsubscribe_request" newsletter.slug %}">{% trans "Unsubscribe" %}</a> -->
-        </div>
+            <a href="http://{{ site.domain }}{% url "newsletter_unsubscribe_request" newsletter.slug %}">{% trans "Unsubscribe" %}</a>
+        </div> -->
     </footer>
 
 </body>
