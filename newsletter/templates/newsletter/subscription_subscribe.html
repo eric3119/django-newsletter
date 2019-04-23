@@ -5,9 +5,9 @@
 {% block title %}{% trans "Newsletter subscribe" %}{% endblock title %}
 
 {% block body %}
-    <h1>{% trans "Newsletter subscribe" %} {{ newsletter.title }}</h1>
 
     {% if error %}
+        <h1 class="title">{% trans "Newsletter subscribe" %} {{ newsletter.title }}</h1>
         <p>{% trans "Due to a technical error we were not able to submit your confirmation email. This could be because your email address is invalid." %}</p>
 
         {% comment %} Replace the the following dummy with a valid email address and remove this comment.
@@ -17,8 +17,22 @@
         {% endcomment %}
     {% else %}    
         <form enctype="multipart/form-data" method="post" action=".">            
-            {{ form.as_p }}
-            <p><input id="id_submit" name="submit" value="{% trans "Subscribe" %}" type="submit" /></p>
+            <div class="col-md-6">
+                <h1 class="title">{% trans "Newsletter subscribe" %} {{ newsletter.title }}</h1>
+                <div class="form-group">
+                    <label class="control-label" for="id_name_field">Nome</label>
+                    {{ form.name_field }}
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="id_email_field" required="true">Email</label>
+                    {{ form.email_field }}
+                </div>
+                <input id="id_submit" name="submit" value="{% trans "Subscribe" %}" class="btn btn-primary" type="submit" />
+            </div>
         </form>
     {% endif %}
+    <script>
+        $( "#id_name_field" ).addClass( "form-control" );
+        $( "#id_email_field" ).addClass( "form-control" );
+    </script>
 {% endblock body %}

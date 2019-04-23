@@ -10,215 +10,38 @@
         <link rel="stylesheet" href="{{ STATIC_URL }} /static/fontawesome/css/all.css">
         <link rel="stylesheet" href="{{ STATIC_URL }} /static/simple-sidebar/simple-sidebar.css">
         <link rel="stylesheet" href="{{ STATIC_URL }} /static/main.css">        
-        <script type="text/javascript" src="{{ STATIC_URL }} /static/jquery/jquery-3.3.1.min.js"></script>
-        <style>
-            header {
-                margin-bottom: 40px;
-            }
-            .header-top {
-                background: #2C2C4B;
-                height:50px;
-                color: #fff;
-            }
-            .wrap-control-font {
-                position: relative;
-                top:12px;
-                float:left;
-                font-weight: bold;
-            }
-            .wrap-control-font a{
-                color: #fff;
-                font-size: 20px;
-            }
-            .wrap-nav-social{
-                position: relative;
-                top:12px;
-                float: right;
-            }
-            .nav-social{
-                list-style: none;
-            }
-            .nav-social li{
-                float: left;
-                margin-right: 3px;
-            }
-            .nav-social li:last-child{
-                float: left;
-                margin-right: 0px;
-            }
-
-            .nav-social li a img{
-                width: 25px;
-                height: 25px;
-            }
-
-            .fachada{
-                background: url("/static/img/bg-fachada.png");
-                background-repeat:no-repeat;
-                background-size:cover;
-                background-position:center;
-                -webkit-background-size:cover;
-                -moz-background-size:cover;
-                -o-background-size:cover;
-                height:140px;
-                color:#fff;
-
-            }
-            .logo-main{
-                position:relative; 
-                top: 10px;
-            }
-            .wrap-titulos{
-                position:relative;
-                top:20px;
-            }
-            .titulo-sistema{
-                position:relative;
-                top: 10px;
-                font-size: 20px;
-                font-family: 'Didact Gothic', sans-serif;
-                font-weight: bold;
-                margin-bottom: 10px;
-            }
-            .assinatura-tribunal{
-                font-size: 12px;
-                font-family: 'Didact Gothic', sans-serif;
-            }
-
-            .footer-header{
-                background: url("../img/bg-footer-fachada.jpg");
-                background-repeat:repeat-x ;
-                height:16px;
-                position: relative;
-                top:37px;
-            }
-            .title{
-                background: url("../img/icon-sic.png");
-                background-repeat:no-repeat ;
-                font-weight: bold;
-                font-size: 20px;
-                color:#5C5E74;
-                height: 25px;
-                text-indent:28px;
-            }
-            footer{
-                position: relative;
-                top:20px; 
-                height: 145px;
-                background:#888888;
-            }
-            .wrap-info  {
-                text-align:center;
-                color:#fff;
-                font-family: 'Didact Gothic', sans-serif;
-                font-size:14px;
-                padding:20px;
-            }
-            .info-tce{
-                font-weight: bold;
-                padding:0px;
-                margin:0px;
-            }
-
-            .info-endereco{
-                margin:0px;
-                padding:0px; 
-            }
-            .info-contato{
-                margin:0px;
-                padding:0px; 
-            }
-            .dti-mini{
-                position:relative;
-                top:20px;
-
-            }
-            /*botoes*/
-            .btn.btn-primary {
-                color: #fff;
-                background-color: #2C2C4B;
-                border-color: #2C2C4B;
-            }
-            .btn.btn-primary:hover {
-                color: #fff;
-                background-color: #224992;
-                border-color:#224992;
-            }
-
-            fieldset.panel-border {
-                border: 1px groove #ddd !important;
-                padding: 0 1.4em 1.4em 1.4em !important;
-                margin: 0 0 1.5em 0 !important;
-                -webkit-box-shadow:  0px 0px 0px 0px #000;
-                        box-shadow:  0px 0px 0px 0px #000;
-            }
-
-                legend.panel-border {
-                    font-size: 1.2em !important;
-                    font-weight: bold !important;
-                    text-align: left !important;
-                    width:auto;
-                    padding:0 10px;
-                    border-bottom:none;
-                }
-
-
-
-
-            /* ==========================================================================
-            Media Queries breakpoints
-            ========================================================================== */
-
-            /* Small devices (landscape phones, 576px and up)*/
-            @media (min-width: 576px) {
-                .titulo-sistema{
-                    font-size:30px;
-                }
-                .assinatura-tribunal{
-                    font-size: 20px;
-
-                }
-                .logo-main{
-                    position:relative; 
-                    top: 38px;
-                }
-            }
-
-            /* Large devices (desktops, 992px and up) */
-            @media (min-width: 992px) {
-
-            }
-
-            /* Extra large devices (large desktops, 1200px and up) */
-            @media (min-width: 1200px) {
-
-            }
-
-
-        </style>
+        <script type="text/javascript" src="{{ STATIC_URL }} /static/jquery/jquery-3.3.1.min.js"></script>        
         {% block header %}
+
         <header>
-            <div class="fachada">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4"><a href="" class="logo-main"><img src="/static/img/logo_tce_branco.png" alt=""></a></div>
-                        <div class="col-md-8 wrap-titulos">
-                            <h1 class="titulo-sistema">Sistema de Informação ao Cidadão</h1>
-                            <p class="assinatura-tribunal">TRIBUNAL DE CONTAS DO ESTADO DE ALAGOAS</p>
-                        </div>
+                <div class="header-top">
+                    <div class="container">
+                        <!-- <div class="acess-container wrap-control-font">
+                            <a id="increaseFont" href="javascript:;" class="fontSizePlus">A+</a>
+                            <a id="decreaseFont" href="javascript:;" class="fontSizeMinus">A-</a>
+                        </div> -->
+                        <div class="wrap-nav-social">
+                                <ul class="nav-social">
+                                    <li><a target="_blank" href="https://www.facebook.com/tcealagoas/"><img src="https://www.tce.al.gov.br/view/img/ic-face.png" alt=""></a></li>
+                                    <li><a target="_blank" href="https://www.instagram.com/tceal/"><img src="https://www.tce.al.gov.br/view/img/ic-insta.png" alt=""></a></li>
+                                    <li><a target="_blank" href="https://www.youtube.com/channel/UCw5nnSAGQXZqGFeiSlaGAmA"><img src="https://www.tce.al.gov.br/view/img/ic-youtube.png" alt=""></a></li>
+                                </ul>
+                            </div>
                     </div>
                 </div>
-                <div class="footer-header"></div>
-            </div>
-            <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container">
-                    <a href="{% url 'newsletter_list' %}"><span class="navbar-brand">Início</span></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>                            
+                <div class="fachada">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4"><a href="" class="logo-main"><img src="/static/img/logo_tce_branco.png" alt=""></a></div>
+                            <div class="col-md-8 wrap-titulos">
+                                <h1 class="titulo-sistema">Sistema de Informação ao Cidadão</h1>
+                                <p class="assinatura-tribunal">TRIBUNAL DE CONTAS DO ESTADO DE ALAGOAS</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-header"></div>
                 </div>
-            </nav> -->
-        </header>
+            </header>
         {% endblock header %}
     </head>
     <body>
