@@ -3,7 +3,6 @@ __pycache__
 /newsletter/migrations
 /attachments
 /cache
-/static
 /media
 .idea
 /proj_newsletter/settings_secret.py
