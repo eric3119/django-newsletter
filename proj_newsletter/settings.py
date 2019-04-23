@@ -159,4 +159,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'cache'),
 ]
 
-SITE_ID = 1
+if not 'SITE_ID' in locals():
+    SITE_ID = 1
