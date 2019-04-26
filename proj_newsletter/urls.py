@@ -22,8 +22,7 @@ from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),    
-    url(r'^newsletter/', include('newsletter.urls')),
-    url('', include('app.urls')),
+    url('', include('newsletter.urls')),
 ]
 
 if settings.DEBUG:
