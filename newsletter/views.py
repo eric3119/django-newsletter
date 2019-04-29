@@ -452,14 +452,15 @@ class SubscribeRequestView(ActionRequestView):
     def get_subscription(self, form):
         return form.save()
 
-    def dispatch(self, request, *args, **kwargs):
-        if is_authenticated(request.user):
-            kwargs['confirm'] = self.confirm
-            return SubscribeUserView.as_view()(request, *args, **kwargs)
+    ## desconsidera usuario logado    
+    # def dispatch(self, request, *args, **kwargs):
+    #     if is_authenticated(request.user):
+    #         kwargs['confirm'] = self.confirm
+    #         return SubscribeUserView.as_view()(request, *args, **kwargs)
 
-        return super(SubscribeRequestView, self).dispatch(
-            request, *args, **kwargs
-        )
+    #     return super(SubscribeRequestView, self).dispatch(
+    #         request, *args, **kwargs
+    #     )
 
 
 class UnsubscribeRequestView(ActionRequestView):
@@ -467,14 +468,15 @@ class UnsubscribeRequestView(ActionRequestView):
     form_class = UnsubscribeRequestForm
     confirm = False
 
-    def dispatch(self, request, *args, **kwargs):
-        if is_authenticated(request.user):
-            kwargs['confirm'] = self.confirm
-            return UnsubscribeUserView.as_view()(request, *args, **kwargs)
+    ## desconsidera usuario logado
+    # def dispatch(self, request, *args, **kwargs):
+    #     if is_authenticated(request.user):
+    #         kwargs['confirm'] = self.confirm
+    #         return UnsubscribeUserView.as_view()(request, *args, **kwargs)
 
-        return super(UnsubscribeRequestView, self).dispatch(
-            request, *args, **kwargs
-        )
+    #     return super(UnsubscribeRequestView, self).dispatch(
+    #         request, *args, **kwargs
+    #     )
 
 
 class UpdateRequestView(ActionRequestView):
