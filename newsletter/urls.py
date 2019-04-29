@@ -7,7 +7,7 @@ from .views import (
     ActionTemplateView, UpdateSubscriptionView,
 )
 
-from django.views.decorators.csrf import csrf_exempt
+# from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
     # Newsletter list and detail view
@@ -20,7 +20,8 @@ urlpatterns = [
     # Action request views
     surl(
         '^<newsletter_slug:s>/subscribe/$',
-        csrf_exempt(SubscribeRequestView.as_view()),
+        # csrf_exempt(SubscribeRequestView.as_view()),
+        SubscribeRequestView.as_view(),
         name='newsletter_subscribe_request'
     ),
     surl(
@@ -28,11 +29,11 @@ urlpatterns = [
         SubscribeRequestView.as_view(confirm=True),
         name='newsletter_subscribe_confirm'
     ),
-    surl(
-        '^<newsletter_slug:s>/update/$',
-        UpdateRequestView.as_view(),
-        name='newsletter_update_request'
-    ),
+    # surl(
+    #     '^<newsletter_slug:s>/update/$',
+    #     UpdateRequestView.as_view(),
+    #     name='newsletter_update_request'
+    # ),
     surl(
         '^<newsletter_slug:s>/unsubscribe/$',
         UnsubscribeRequestView.as_view(),
@@ -46,7 +47,9 @@ urlpatterns = [
 
     # Activation email sent view
     surl(
-        '^<newsletter_slug:s>/<action=subscribe|update|unsubscribe>/'
+        '^<newsletter_slug:s>/<action=subscribe|'+
+        #'update'+
+        '|unsubscribe>/'
         'email-sent/$',
         ActionTemplateView.as_view(
             template_name='newsletter/subscription_%(action)s_email_sent.html'
@@ -67,7 +70,9 @@ urlpatterns = [
 
     # Action activation completed view
     surl(
-        '^<newsletter_slug:s>/<action=subscribe|update|unsubscribe>/'
+        '^<newsletter_slug:s>/<action=subscribe|'+
+        #'update'+
+        '|unsubscribe>/'
         'activation-completed/$',
         ActionTemplateView.as_view(
             template_name='newsletter/subscription_%(action)s_activated.html'
