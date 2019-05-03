@@ -22,6 +22,7 @@ from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),    
+    url('', include('user_login.urls')),
     url('', include('newsletter.urls')),
 ]
 
