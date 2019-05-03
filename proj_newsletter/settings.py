@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from .settings_ldap import *
+
 try:
     from .settings_secret import *
 except ImportError:
@@ -42,18 +44,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
-
-# Application definition
-
-INSTALLED_APPS = [
-     # The general purpose templates
-    'django_adminlte',
-
-    # Optional: Skin for the admin interface
+INSTALLED_APPS = [     
+    'django_adminlte',    
     'django_adminlte_theme',
-
-    # Any apps which need to have their templates overridden by adminlte    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -63,12 +56,10 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'sorl.thumbnail',    
     'user_login',
-    'newsletter',
-    # 'corsheaders',
+    'newsletter',    
 ]
 
 MIDDLEWARE = [
-    # 'corsheaders.middleware.CorsMiddleware',    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -77,20 +68,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-# CORS_ORIGIN_WHITELIST = (
-#     '172.16.130.40:8081',
-# )
-
-# CORS_ALLOW_METHODS = (    
-#     'POST',    
-# )
-
-# CSRF_TRUSTED_ORIGINS = (
-#     '172.16.130.40:8081',
-# )
-
-# CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'proj_newsletter.urls'
 
@@ -169,18 +146,3 @@ STATICFILES_DIRS = [
 
 if not 'SITE_ID' in locals():
     SITE_ID = 1
-
-import ldap
-AUTH_LDAP_SERVER_URI = "ldap://localhost:10389"
-AUTH_LDAP_USER_DN_TEMPLATE = "cn=%(user)s,ou=Users,dc=example,dc=com"
-AUTHENTICATION_BACKENDS = (
-    'django_auth_ldap.backend.LDAPBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
-
-AUTH_LDAP_USER_ATTR_MAP = {"email": "mail"}
-
-import logging
-logger = logging.getLogger('django_auth_ldap')
-logger.addHandler(logging.StreamHandler())
-logger.setLevel(logging.DEBUG)
