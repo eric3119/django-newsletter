@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block content %}
+{% block body %}
 {% if user.is_authenticated %}
     
 <div class="container">
@@ -20,9 +20,9 @@
                 <a class="form-control list-group-item-action" href="{% url 'newsletter_detail' form.instance.newsletter.slug %}">{{ form.instance.newsletter.title }}</a>
             </div>            
         {% endfor %}      
-    <input id="id_submit" class="btn btn-primary" name="submit" value="{% trans "Confirm" %}" type="submit" />      
+    <input id="id_submit" class="btn btn-primary" name="submit" value="{% trans "Update" %}" type="submit" />
     </form>
 </div>
     
 {% endif %}
-{% endblock content %}
+{% endblock body %}

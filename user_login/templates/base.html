@@ -1,41 +1,71 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{{ title }}</title>
+        <title>{% block title %}{% trans "Newsletter" %}{% endblock title %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">    
         <link rel="stylesheet" href="{{ STATIC_URL }} /static/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ STATIC_URL }} /static/fontawesome/css/all.css">
         <link rel="stylesheet" href="{{ STATIC_URL }} /static/simple-sidebar/simple-sidebar.css">
         <link rel="stylesheet" href="{{ STATIC_URL }} /static/main.css">        
-        <script type="text/javascript" src="{{ STATIC_URL }} /static/jquery/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }} /static/jquery/jquery-3.3.1.min.js"></script>        
+        {% block header %}
+
+        <header>
+                <div class="header-top">
+                    <div class="container">
+                        <!-- <div class="acess-container wrap-control-font">
+                            <a id="increaseFont" href="javascript:;" class="fontSizePlus">A+</a>
+                            <a id="decreaseFont" href="javascript:;" class="fontSizeMinus">A-</a>
+                        </div> -->
+                        <div class="wrap-nav-social">
+                                <ul class="nav-social">
+                                    <li><a target="_blank" href="https://www.facebook.com/tcealagoas/"><img src="https://www.tce.al.gov.br/view/img/ic-face.png" alt=""></a></li>
+                                    <li><a target="_blank" href="https://www.instagram.com/tceal/"><img src="https://www.tce.al.gov.br/view/img/ic-insta.png" alt=""></a></li>
+                                    <li><a target="_blank" href="https://www.youtube.com/channel/UCw5nnSAGQXZqGFeiSlaGAmA"><img src="https://www.tce.al.gov.br/view/img/ic-youtube.png" alt=""></a></li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+                <div class="fachada">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4"><a href="" class="logo-main"><img src="/static/img/logo_tce_branco.png" alt=""></a></div>
+                            <div class="col-md-8 wrap-titulos">
+                                <h1 class="titulo-sistema">Sistema de Informação ao Cidadão</h1>
+                                <p class="assinatura-tribunal">TRIBUNAL DE CONTAS DO ESTADO DE ALAGOAS</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-header"></div>
+                </div>
+            </header>
+        {% endblock header %}
     </head>
     <body>
-        <div class="d-flex" id="wrapper">
-        <div class="bg-light border-right" id="sidebar-wrapper">
-            {% if user.is_authenticated %}
-            <div class="sidebar-heading">{{ user.get_username }}</div>
-            <div class="list-group list-group-flush">                
-                <a class="nav-link active" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
-            </div>                        
-            {% endif %}
-        </div>        
-        <div id="page-content-wrapper">
-            <header>
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container">
-                        <a href="{% url 'profile' %}"><span class="navbar-brand">Início</span></a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>                            
-                    </div>
-                </nav>
-            </header>
-            <div style="margin-top: 1%">
-                {% block content %}
-                {% endblock %}
+        <div class="container">
+            {% block body %}
+            {% endblock body %}
+        </div>
+        {% block footer %}
+        <style>
+        .footer-tce {
+            margin: 0;
+            padding: 0;
+        }
+        </style>
+        <footer class="footer-tce">
+            <div class="container">
+                <div class="wrap-info">
+                    <p class="info-tce">Tribunal de Contas do Estado de Alagoas</p>
+                    <p class="info-endereco">Av. Fernandes Lima, 1047, Farol Maceió-Alagoas - CEP: 57055-00</p>
+                    <p class="info-contato">Fone:(82) 99983-5401 - Horário de funcionamento: 7h às 19h.</p>
+                    <span class="dti-mini"><img src="/static/img/dti-mini.png" alt=""></span> 
+                </div>
             </div>
-        </div>        
+        </footer>
+        {% endblock footer %}
     </body>
 </html>
