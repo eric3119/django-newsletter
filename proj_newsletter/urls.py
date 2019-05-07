@@ -25,12 +25,3 @@ urlpatterns = [
     url('', include('user_login.urls')),
     url('', include('newsletter.urls')),
 ]
-
-# if settings.DEBUG:
-#     urlpatterns += [
-#         url(r'^media/(?P<path>.*)$', 
-#         serve,
-#         {
-#             'document_root': settings.MEDIA_ROOT,
-#         }),
-#     ]

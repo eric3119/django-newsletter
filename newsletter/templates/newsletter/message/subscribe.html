@@ -9,7 +9,7 @@
 <body>
 {% blocktrans with name=subscription.name title=newsletter.title domain=site.domain url=subscription.subscribe_activate_url %}
 <div style="margin-bottom:50px;">
-        <img src="http://172.16.130.40:8000/media/cache/fb/06/fb065d96be527a2afd48b88f34cd4c5b.jpg" width="720" height="100">
+        <img src="{{ domain }}/media/cache/fb/06/fb065d96be527a2afd48b88f34cd4c5b.jpg" width="720" height="100">
 </div>
 <div style="max-width: 700px; font-size: 14px; padding: 10px">
     Caro {{ name }},
@@ -23,7 +23,7 @@
     {{ newsletter.sender }}
 </div>
 <div style="margin-top:50px;">
-    <img src="http://172.16.130.40:8000/media/cache/bf/d6/bfd6f7bd79c57dfff8b9e196881bfcbb.jpg" width="720" height="150">
+    <img src="{{ domain }}/media/cache/bf/d6/bfd6f7bd79c57dfff8b9e196881bfcbb.jpg" width="720" height="150">
 </div>
 </body>
 </html>

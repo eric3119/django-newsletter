@@ -7,7 +7,7 @@ from .views import (
     ActionTemplateView, UpdateSubscriptionView,
 )
 
-# from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
     # Newsletter list and detail view
@@ -20,8 +20,8 @@ urlpatterns = [
     # Action request views
     surl(
         '^<newsletter_slug:s>/subscribe/$',
-        # csrf_exempt(SubscribeRequestView.as_view()),
-        SubscribeRequestView.as_view(),
+        csrf_exempt(SubscribeRequestView.as_view()),
+        # SubscribeRequestView.as_view(),
         name='newsletter_subscribe_request'
     ),
     surl(
@@ -29,11 +29,11 @@ urlpatterns = [
         SubscribeRequestView.as_view(confirm=True),
         name='newsletter_subscribe_confirm'
     ),
-    # surl(
-    #     '^<newsletter_slug:s>/update/$',
-    #     UpdateRequestView.as_view(),
-    #     name='newsletter_update_request'
-    # ),
+    surl(
+        '^<newsletter_slug:s>/update/$',
+        UpdateRequestView.as_view(),
+        name='newsletter_update_request'
+    ),
     surl(
         '^<newsletter_slug:s>/unsubscribe/$',
         UnsubscribeRequestView.as_view(),
