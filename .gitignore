@@ -1,10 +1,8 @@
 __pycache__
-/app/migrations
-/newsletter/migrations
-/attachments
-/cache
-/media
+attachments
+cache
+media
 .idea
-/proj_newsletter/settings_secret.py
+proj_newsletter/settings_secret.py
 venv
-*sqlite3
+*.sqlite3

@@ -29,11 +29,11 @@ urlpatterns = [
         SubscribeRequestView.as_view(confirm=True),
         name='newsletter_subscribe_confirm'
     ),
-    # surl(
-    #     '^<newsletter_slug:s>/update/$',
-    #     UpdateRequestView.as_view(),
-    #     name='newsletter_update_request'
-    # ),
+    surl(
+        '^<newsletter_slug:s>/update/$',
+        UpdateRequestView.as_view(),
+        name='newsletter_update_request'
+    ),
     surl(
         '^<newsletter_slug:s>/unsubscribe/$',
         UnsubscribeRequestView.as_view(),
