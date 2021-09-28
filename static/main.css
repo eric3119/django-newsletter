@@ -1,193 +1,182 @@
-.sidebar{
-    position: absolute;
-    max-width: 10%;
+.sidebar {
+  position: absolute;
+  max-width: 10%;
 }
 
 footer {
-	margin-top: 30px;
-	padding-top: 30px;	
-	border-top: 1px solid #ddd;
-	color: #e2e2e2;
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #ddd;
+  color: #e2e2e2;
 }
 footer hr {
-	border-top: none;
-	border-bottom: 1px solid #666;
+  border-top: none;
+  border-bottom: 1px solid #666;
 }
-footer a{
-    text-decoration: none !important;
+footer a {
+  text-decoration: none !important;
 }
 footer h5 {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 13px;
-	font-weight: bold;
-	color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
 }
 
 .texto-newsletter {
-	width: 720px;
+  width: 720px;
 }
 .texto-newsletter p {
-	margin-top: 20px;
-	text-align: justify;
+  margin-top: 20px;
+  text-align: justify;
 }
 
 #banner {
-	float: left;
-	margin-top: 20px;
+  float: left;
+  margin-top: 20px;
 }
 
 header {
-	margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 .header-top {
-	background: #2C2C4B;
-	height:50px;
-	color: #fff;
+  background: #2c2c4b;
+  height: 50px;
+  color: #fff;
 }
 .wrap-control-font {
-	position: relative;
-	top:12px;
-	float:left;
-	font-weight: bold;
+  position: relative;
+  top: 12px;
+  float: left;
+  font-weight: bold;
 }
-.wrap-control-font a{
-	color: #fff;
-	font-size: 20px;
+.wrap-control-font a {
+  color: #fff;
+  font-size: 20px;
 }
-.wrap-nav-social{
-	position: relative;
-	top:12px;
-	float: right;
+.wrap-nav-social {
+  position: relative;
+  top: 12px;
+  float: right;
 }
-.nav-social{
-	list-style: none;
+.nav-social {
+  list-style: none;
 }
-.nav-social li{
-	float: left;
-	margin-right: 3px;
+.nav-social li {
+  float: left;
+  margin-right: 3px;
 }
-.nav-social li:last-child{
-	float: left;
-	margin-right: 0px;
-}
-
-.nav-social li a img{
-	width: 25px;
-	height: 25px;
+.nav-social li:last-child {
+  float: left;
+  margin-right: 0px;
 }
 
-.fachada{
-	background: url("/static/img/bg-fachada.png");
-	background-repeat:no-repeat;
-	background-size:cover;
-	background-position:center;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	height:140px;
-	color:#fff;
-
-}
-.logo-main{
-	position:relative; 
-	top: 10px;
-}
-.wrap-titulos{
-	position:relative;
-	top:20px;
-}
-.titulo-sistema{
-	position:relative;
-	top: 10px;
-	font-size: 20px;
-	font-family: 'Didact Gothic', sans-serif;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-.assinatura-tribunal{
-	font-size: 12px;
-	font-family: 'Didact Gothic', sans-serif;
+.nav-social li a img {
+  width: 25px;
+  height: 25px;
 }
 
-.footer-header{
-	background: url("/static/img/bg-footer-fachada.jpg");
-	background-repeat:repeat-x ;
-	height:16px;
-	position: relative;
-	top:37px;
+.fachada {
+  background: url("/static/img/az_subtle.png");
+  background-repeat: repeat;
+  background-size: auto;
 }
-.title{
-	background: url("/static/img/icon-sic.png");
-	background-repeat:no-repeat ;
-	font-weight: bold;
-	font-size: 20px;
-	color:#5C5E74;
-	height: 25px;
-	text-indent:28px;
+.logo-main {
+  position: relative;
+  top: 10px;
 }
-footer{
-	position: relative;
-	top:20px; 
-	height: 145px;
-	background:#888888;
+.wrap-titulos {
+  position: relative;
+  top: 20px;
 }
-.wrap-info  {
-	text-align:center;
-	color:#fff;
-	font-family: 'Didact Gothic', sans-serif;
-	font-size:14px;
-	padding:20px;
+.titulo-sistema {
+  position: relative;
+  top: 10px;
+  font-size: 20px;
+  font-family: "Didact Gothic", sans-serif;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
-.info-tce{
-	font-weight: bold;
-	padding:0px;
-	margin:0px;
+.assinatura-tribunal {
+  font-size: 12px;
+  font-family: "Didact Gothic", sans-serif;
 }
 
-.info-endereco{
-	margin:0px;
-	padding:0px; 
+.footer-header {
+  background: url("/static/img/bg-footer-fachada.jpg");
+  background-repeat: repeat-x;
+  height: 16px;
+  position: relative;
+  top: 37px;
 }
-.info-contato{
-	margin:0px;
-	padding:0px; 
+.title {
+  background: url("/static/img/icon-sic.png");
+  background-repeat: no-repeat;
+  font-weight: bold;
+  font-size: 20px;
+  color: #5c5e74;
+  height: 25px;
+  text-indent: 28px;
 }
-.dti-mini{
-	position:relative;
-	top:20px;
+footer {
+  position: relative;
+  top: 20px;
+  height: 145px;
+  background: #888888;
+}
+.wrap-info {
+  text-align: center;
+  color: #fff;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 14px;
+  padding: 20px;
+}
+.info-tce {
+  font-weight: bold;
+  padding: 0px;
+  margin: 0px;
+}
 
+.info-endereco {
+  margin: 0px;
+  padding: 0px;
+}
+.info-contato {
+  margin: 0px;
+  padding: 0px;
+}
+.dti-mini {
+  position: relative;
+  top: 20px;
 }
 /*botoes*/
 .btn.btn-primary {
-	color: #fff;
-	background-color: #2C2C4B;
-	border-color: #2C2C4B;
+  color: #fff;
+  background-color: #2c2c4b;
+  border-color: #2c2c4b;
 }
 .btn.btn-primary:hover {
-	color: #fff;
-	background-color: #224992;
-	border-color:#224992;
+  color: #fff;
+  background-color: #224992;
+  border-color: #224992;
 }
 
 fieldset.panel-border {
-	border: 1px groove #ddd !important;
-	padding: 0 1.4em 1.4em 1.4em !important;
-	margin: 0 0 1.5em 0 !important;
-	-webkit-box-shadow:  0px 0px 0px 0px #000;
-			box-shadow:  0px 0px 0px 0px #000;
+  border: 1px groove #ddd !important;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 1.5em 0 !important;
+  -webkit-box-shadow: 0px 0px 0px 0px #000;
+  box-shadow: 0px 0px 0px 0px #000;
 }
 
-	legend.panel-border {
-		font-size: 1.2em !important;
-		font-weight: bold !important;
-		text-align: left !important;
-		width:auto;
-		padding:0 10px;
-		border-bottom:none;
-	}
-
-
-
+legend.panel-border {
+  font-size: 1.2em !important;
+  font-weight: bold !important;
+  text-align: left !important;
+  width: auto;
+  padding: 0 10px;
+  border-bottom: none;
+}
 
 /* ==========================================================================
 Media Queries breakpoints
@@ -195,25 +184,22 @@ Media Queries breakpoints
 
 /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
-	.titulo-sistema{
-		font-size:30px;
-	}
-	.assinatura-tribunal{
-		font-size: 20px;
-
-	}
-	.logo-main{
-		position:relative; 
-		top: 38px;
-	}
+  .titulo-sistema {
+    font-size: 30px;
+  }
+  .assinatura-tribunal {
+    font-size: 20px;
+  }
+  .logo-main {
+    position: relative;
+    top: 38px;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-
 }

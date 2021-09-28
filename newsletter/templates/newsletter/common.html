@@ -1,71 +1,85 @@
 {% load i18n %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{% block title %}{% trans "Newsletter" %}{% endblock title %}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">    
-        <link rel="stylesheet" href="{{ STATIC_URL }} /static/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ STATIC_URL }} /static/fontawesome/css/all.css">
-        <link rel="stylesheet" href="{{ STATIC_URL }} /static/simple-sidebar/simple-sidebar.css">
-        <link rel="stylesheet" href="{{ STATIC_URL }} /static/main.css">        
-        <script type="text/javascript" src="{{ STATIC_URL }} /static/jquery/jquery-3.3.1.min.js"></script>        
-        {% block header %}
-
-        <header>
-                <div class="header-top">
-                    <div class="container">
-                        <!-- <div class="acess-container wrap-control-font">
-                            <a id="increaseFont" href="javascript:;" class="fontSizePlus">A+</a>
-                            <a id="decreaseFont" href="javascript:;" class="fontSizeMinus">A-</a>
-                        </div> -->
-                        <div class="wrap-nav-social">
-                                <ul class="nav-social">
-                                    <li><a target="_blank" href="https://www.facebook.com/tcealagoas/"><img src="https://www.tce.al.gov.br/view/img/ic-face.png" alt=""></a></li>
-                                    <li><a target="_blank" href="https://www.instagram.com/tceal/"><img src="https://www.tce.al.gov.br/view/img/ic-insta.png" alt=""></a></li>
-                                    <li><a target="_blank" href="https://www.youtube.com/channel/UCw5nnSAGQXZqGFeiSlaGAmA"><img src="https://www.tce.al.gov.br/view/img/ic-youtube.png" alt=""></a></li>
-                                </ul>
-                            </div>
-                    </div>
-                </div>
-                <div class="fachada">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4"><a href="" class="logo-main"><img src="/static/img/logo_tce_branco.png" alt=""></a></div>
-                            <div class="col-md-8 wrap-titulos">
-                                <h1 class="titulo-sistema">Sistema de Informação ao Cidadão</h1>
-                                <p class="assinatura-tribunal">TRIBUNAL DE CONTAS DO ESTADO DE ALAGOAS</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer-header"></div>
-                </div>
-            </header>
-        {% endblock header %}
-    </head>
-    <body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{% block title %}{% trans "Newsletter" %}{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="{{ STATIC_URL }} /static/bootstrap/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ STATIC_URL }} /static/fontawesome/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ STATIC_URL }} /static/simple-sidebar/simple-sidebar.css"
+    />
+    <link rel="stylesheet" href="{{ STATIC_URL }} /static/main.css" />
+    <script
+      type="text/javascript"
+      src="{{ STATIC_URL }} /static/jquery/jquery-3.3.1.min.js"
+    ></script>
+    {% block header %}
+    <header>
+      <div class="header-top">
         <div class="container">
-            {% block body %}
-            {% endblock body %}
-        </div>
-        {% block footer %}
-        <style>
-        .footer-tce {
-            margin: 0;
-            padding: 0;
-        }
-        </style>
-        <footer class="footer-tce">
-            <div class="container">
-                <div class="wrap-info">
-                    <p class="info-tce">Tribunal de Contas do Estado de Alagoas</p>
-                    <p class="info-endereco">Av. Fernandes Lima, 1047, Farol Maceió-Alagoas - CEP: 57055-00</p>
-                    <p class="info-contato">Fone:(82) 99983-5401 - Horário de funcionamento: 7h às 19h.</p>
-                    <span class="dti-mini"><img src="/static/img/dti-mini.png" alt=""></span> 
-                </div>
+          <div class="d-flex justify-content-between">
+            <a href="/">
+              <img src="/static/img/django-icon.png" width="50px" />
+            </a>
+            <div class="wrap-nav-social">
+              <ul class="nav-social">
+                <li>
+                  <a
+                    target="_blank"
+                    class="btn btn-primary p-1 px-2"
+                    href="https://www.facebook.com/"
+                    ><i class="fab fa-facebook"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    class="btn btn-primary p-1 px-2"
+                    href="https://www.instagram.com/"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    class="btn btn-primary p-1 px-2"
+                    href="https://www.youtube.com/"
+                    ><i class="fab fa-youtube"></i
+                  ></a>
+                </li>
+              </ul>
             </div>
-        </footer>
-        {% endblock footer %}
-    </body>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center fachada">
+        <h2 style="font-weight: 300">Sistema de Newsletters</h2>
+      </div>
+    </header>
+    {% endblock header %}
+  </head>
+  <body>
+    <div class="container">{% block body %} {% endblock body %}</div>
+    {% block footer %}
+    <footer>
+      <div class="container">
+        <div class="wrap-info">
+          <span class="logo-mini"
+            ><img src="/static/img/django-icon.png" alt="" width="50px"
+          /></span>
+        </div>
+      </div>
+    </footer>
+    {% endblock footer %}
+  </body>
 </html>
