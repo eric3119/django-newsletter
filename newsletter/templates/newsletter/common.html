@@ -26,60 +26,43 @@
     {% block header %}
     <header>
       <div class="header-top">
-        <div class="container">
-          <div class="d-flex justify-content-between">
+        <div class="container d-flex justify-content-between">
+          <div class="d-flex align-items-center">
             <a href="/">
               <img src="/static/img/django-icon.png" width="50px" />
             </a>
-            <div class="wrap-nav-social">
-              <ul class="nav-social">
-                <li>
-                  <a
-                    target="_blank"
-                    class="btn btn-primary p-1 px-2"
-                    href="https://www.facebook.com/"
-                    ><i class="fab fa-facebook"></i
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    class="btn btn-primary p-1 px-2"
-                    href="https://www.instagram.com/"
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    class="btn btn-primary p-1 px-2"
-                    href="https://www.youtube.com/"
-                    ><i class="fab fa-youtube"></i
-                  ></a>
-                </li>
-              </ul>
-            </div>
+          </div>
+          <div class="d-flex align-items-center">
+            <h2 class="text-center" style="font-weight: 300">
+              Sistema de Newsletters
+            </h2>
+          </div>
+          <div class="d-flex align-items-center">
+            <a
+              target="_blank"
+              class="btn btn-primary p-1 px-2"
+              href="https://www.facebook.com/"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              target="_blank"
+              class="btn btn-primary p-1 px-2"
+              href="https://www.instagram.com/"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              target="_blank"
+              class="btn btn-primary p-1 px-2"
+              href="https://www.youtube.com/"
+              ><i class="fab fa-youtube"></i
+            ></a>
           </div>
         </div>
-      </div>
-      <div class="d-flex justify-content-center fachada">
-        <h2 style="font-weight: 300">Sistema de Newsletters</h2>
       </div>
     </header>
     {% endblock header %}
   </head>
   <body>
     <div class="container">{% block body %} {% endblock body %}</div>
-    {% block footer %}
-    <footer>
-      <div class="container">
-        <div class="wrap-info">
-          <span class="logo-mini">
-            <img src="/static/img/django-icon.png" alt="" width="30px" />
-          </span>
-        </div>
-      </div>
-    </footer>
-    {% endblock footer %}
   </body>
 </html>
